@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BabyJourney.Life - Chronicle Your Baby's Story</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'accent': '#FFD700',
+                        'dark-bg': '#0D0D0D',
+                        'dark-secondary': '#1A1A1A',
+                    },
+                    fontFamily: {
+                        'sans': ['Onest', 'sans-serif'],
+                        'serif': ['Onest', 'serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'shimmer': 'shimmer 3s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-bg text-gray-200 font-sans overflow-x-hidden">
+    <!-- Beautiful Glowing Stars Layer -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <!-- Blue Glowing Stars -->
+        <div class="absolute star-twinkle" style="top: 15%; left: 10%; animation-delay: 0s;">
+            <div class="w-1.5 h-1.5 bg-blue-400 rounded-full shadow-lg" style="box-shadow: 0 0 4px #60a5fa, 0 0 8px #60a5fa;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 25%; left: 25%; animation-delay: 0.8s;">
+            <div class="w-1 h-1 bg-blue-500 rounded-full shadow-lg" style="box-shadow: 0 0 3px #3b82f6, 0 0 6px #3b82f6;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 35%; left: 60%; animation-delay: 1.5s;">
+            <div class="w-1.5 h-1.5 bg-blue-300 rounded-full shadow-lg" style="box-shadow: 0 0 4px #93c5fd, 0 0 8px #93c5fd;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 50%; left: 15%; animation-delay: 2.2s;">
+            <div class="w-0.5 h-0.5 bg-blue-400 rounded-full shadow-lg" style="box-shadow: 0 0 2px #60a5fa, 0 0 4px #60a5fa;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 65%; left: 40%; animation-delay: 0.5s;">
+            <div class="w-1 h-1 bg-blue-500 rounded-full shadow-lg" style="box-shadow: 0 0 3px #3b82f6, 0 0 6px #3b82f6;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 80%; left: 70%; animation-delay: 1.8s;">
+            <div class="w-1.5 h-1.5 bg-blue-400 rounded-full shadow-lg" style="box-shadow: 0 0 4px #60a5fa, 0 0 8px #60a5fa;"></div>
+        </div>
+        
+        <!-- More Blue Stars -->
+        <div class="absolute star-twinkle" style="top: 8%; left: 45%; animation-delay: 0.3s;">
+            <div class="w-1 h-1 bg-blue-300 rounded-full shadow-lg" style="box-shadow: 0 0 3px #93c5fd, 0 0 6px #93c5fd;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 18%; left: 85%; animation-delay: 1.1s;">
+            <div class="w-0.5 h-0.5 bg-blue-500 rounded-full shadow-lg" style="box-shadow: 0 0 2px #3b82f6, 0 0 4px #3b82f6;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 28%; left: 5%; animation-delay: 2.1s;">
+            <div class="w-1 h-1 bg-blue-400 rounded-full shadow-lg" style="box-shadow: 0 0 3px #60a5fa, 0 0 6px #60a5fa;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 42%; left: 32%; animation-delay: 0.7s;">
+            <div class="w-1.5 h-1.5 bg-blue-300 rounded-full shadow-lg" style="box-shadow: 0 0 4px #93c5fd, 0 0 8px #93c5fd;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 58%; left: 78%; animation-delay: 1.4s;">
+            <div class="w-0.5 h-0.5 bg-blue-500 rounded-full shadow-lg" style="box-shadow: 0 0 2px #3b82f6, 0 0 4px #3b82f6;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 72%; left: 12%; animation-delay: 2.8s;">
+            <div class="w-1 h-1 bg-blue-400 rounded-full shadow-lg" style="box-shadow: 0 0 3px #60a5fa, 0 0 6px #60a5fa;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 88%; left: 38%; animation-delay: 0.2s;">
+            <div class="w-1 h-1 bg-blue-300 rounded-full shadow-lg" style="box-shadow: 0 0 3px #93c5fd, 0 0 6px #93c5fd;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 95%; left: 82%; animation-delay: 1.7s;">
+            <div class="w-0.5 h-0.5 bg-blue-500 rounded-full shadow-lg" style="box-shadow: 0 0 2px #3b82f6, 0 0 4px #3b82f6;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 3%; left: 75%; animation-delay: 2.4s;">
+            <div class="w-1 h-1 bg-blue-400 rounded-full shadow-lg" style="box-shadow: 0 0 3px #60a5fa, 0 0 6px #60a5fa;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 48%; left: 92%; animation-delay: 0.9s;">
+            <div class="w-0.5 h-0.5 bg-blue-300 rounded-full shadow-lg" style="box-shadow: 0 0 2px #93c5fd, 0 0 4px #93c5fd;"></div>
+        </div>
+        
+        <!-- Purple Glowing Stars -->
+        <div class="absolute star-twinkle" style="top: 20%; left: 45%; animation-delay: 0.3s;">
+            <div class="w-1.5 h-1.5 bg-purple-400 rounded-full shadow-lg" style="box-shadow: 0 0 4px #c084fc, 0 0 8px #c084fc;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 30%; left: 80%; animation-delay: 1.2s;">
+            <div class="w-1 h-1 bg-purple-500 rounded-full shadow-lg" style="box-shadow: 0 0 3px #a855f7, 0 0 6px #a855f7;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 45%; left: 75%; animation-delay: 2s;">
+            <div class="w-1.5 h-1.5 bg-purple-300 rounded-full shadow-lg" style="box-shadow: 0 0 4px #d8b4fe, 0 0 8px #d8b4fe;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 55%; left: 5%; animation-delay: 0.7s;">
+            <div class="w-0.5 h-0.5 bg-purple-400 rounded-full shadow-lg" style="box-shadow: 0 0 2px #c084fc, 0 0 4px #c084fc;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 70%; left: 20%; animation-delay: 1.6s;">
+            <div class="w-1 h-1 bg-purple-500 rounded-full shadow-lg" style="box-shadow: 0 0 3px #a855f7, 0 0 6px #a855f7;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 85%; left: 55%; animation-delay: 0.9s;">
+            <div class="w-1.5 h-1.5 bg-purple-400 rounded-full shadow-lg" style="box-shadow: 0 0 4px #c084fc, 0 0 8px #c084fc;"></div>
+        </div>
+        
+        <!-- More Purple Stars -->
+        <div class="absolute star-twinkle" style="top: 6%; left: 22%; animation-delay: 1.3s;">
+            <div class="w-1 h-1 bg-purple-300 rounded-full shadow-lg" style="box-shadow: 0 0 3px #d8b4fe, 0 0 6px #d8b4fe;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 12%; left: 68%; animation-delay: 2.7s;">
+            <div class="w-0.5 h-0.5 bg-purple-500 rounded-full shadow-lg" style="box-shadow: 0 0 2px #a855f7, 0 0 4px #a855f7;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 22%; left: 95%; animation-delay: 0.1s;">
+            <div class="w-1 h-1 bg-purple-400 rounded-full shadow-lg" style="box-shadow: 0 0 3px #c084fc, 0 0 6px #c084fc;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 38%; left: 58%; animation-delay: 1.9s;">
+            <div class="w-1.5 h-1.5 bg-purple-300 rounded-full shadow-lg" style="box-shadow: 0 0 4px #d8b4fe, 0 0 8px #d8b4fe;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 52%; left: 88%; animation-delay: 0.6s;">
+            <div class="w-0.5 h-0.5 bg-purple-500 rounded-full shadow-lg" style="box-shadow: 0 0 2px #a855f7, 0 0 4px #a855f7;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 63%; left: 65%; animation-delay: 2.3s;">
+            <div class="w-1 h-1 bg-purple-400 rounded-full shadow-lg" style="box-shadow: 0 0 3px #c084fc, 0 0 6px #c084fc;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 77%; left: 48%; animation-delay: 1.0s;">
+            <div class="w-1 h-1 bg-purple-300 rounded-full shadow-lg" style="box-shadow: 0 0 3px #d8b4fe, 0 0 6px #d8b4fe;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 92%; left: 73%; animation-delay: 0.4s;">
+            <div class="w-0.5 h-0.5 bg-purple-500 rounded-full shadow-lg" style="box-shadow: 0 0 2px #a855f7, 0 0 4px #a855f7;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 4%; left: 52%; animation-delay: 2.9s;">
+            <div class="w-1 h-1 bg-purple-400 rounded-full shadow-lg" style="box-shadow: 0 0 3px #c084fc, 0 0 6px #c084fc;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 33%; left: 18%; animation-delay: 1.5s;">
+            <div class="w-0.5 h-0.5 bg-purple-300 rounded-full shadow-lg" style="box-shadow: 0 0 2px #d8b4fe, 0 0 4px #d8b4fe;"></div>
+        </div>
+        
+        <!-- Small scattered mixed stars for depth -->
+        <div class="absolute star-twinkle" style="top: 12%; left: 35%; animation-delay: 2.5s;">
+            <div class="w-0.5 h-0.5 bg-blue-300 rounded-full shadow-lg" style="box-shadow: 0 0 2px #93c5fd, 0 0 4px #93c5fd;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 40%; left: 90%; animation-delay: 1.1s;">
+            <div class="w-0.5 h-0.5 bg-purple-300 rounded-full shadow-lg" style="box-shadow: 0 0 2px #d8b4fe, 0 0 4px #d8b4fe;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 75%; left: 85%; animation-delay: 0.4s;">
+            <div class="w-0.5 h-0.5 bg-blue-300 rounded-full shadow-lg" style="box-shadow: 0 0 2px #93c5fd, 0 0 4px #93c5fd;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 90%; left: 30%; animation-delay: 1.9s;">
+            <div class="w-0.5 h-0.5 bg-purple-300 rounded-full shadow-lg" style="box-shadow: 0 0 2px #d8b4fe, 0 0 4px #d8b4fe;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 16%; left: 12%; animation-delay: 0.8s;">
+            <div class="w-0.5 h-0.5 bg-blue-400 rounded-full shadow-lg" style="box-shadow: 0 0 2px #60a5fa, 0 0 4px #60a5fa;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 36%; left: 43%; animation-delay: 2.6s;">
+            <div class="w-0.5 h-0.5 bg-purple-400 rounded-full shadow-lg" style="box-shadow: 0 0 2px #c084fc, 0 0 4px #c084fc;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 61%; left: 28%; animation-delay: 1.3s;">
+            <div class="w-0.5 h-0.5 bg-blue-500 rounded-full shadow-lg" style="box-shadow: 0 0 2px #3b82f6, 0 0 4px #3b82f6;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 83%; left: 8%; animation-delay: 0.1s;">
+            <div class="w-0.5 h-0.5 bg-purple-500 rounded-full shadow-lg" style="box-shadow: 0 0 2px #a855f7, 0 0 4px #a855f7;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 97%; left: 15%; animation-delay: 2.0s;">
+            <div class="w-0.5 h-0.5 bg-blue-300 rounded-full shadow-lg" style="box-shadow: 0 0 2px #93c5fd, 0 0 4px #93c5fd;"></div>
+        </div>
+        <div class="absolute star-twinkle" style="top: 7%; left: 88%; animation-delay: 1.7s;">
+            <div class="w-0.5 h-0.5 bg-purple-300 rounded-full shadow-lg" style="box-shadow: 0 0 2px #d8b4fe, 0 0 4px #d8b4fe;"></div>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-dark-bg/90 backdrop-blur-md z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="text-xl font-bold text-white flex items-center">
+                        <span>BabyJourney.Life</span>
+                        <svg class="w-5 h-5 ml-2 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#features" class="text-gray-300 hover:text-accent transition-colors duration-200">Features</a>
+                        <a href="#pricing" class="text-gray-300 hover:text-accent transition-colors duration-200">Pricing</a>
+                        <a href="#" class="text-gray-300 hover:text-accent transition-colors duration-200">Contact Us</a>
+                        <button class="gradient-gold text-dark-bg px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                            See Demo
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-accent">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-dark-secondary">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#features" class="block px-3 py-2 text-gray-300 hover:text-accent">Features</a>
+                <a href="#pricing" class="block px-3 py-2 text-gray-300 hover:text-accent">Pricing</a>
+                <a href="#" class="block px-3 py-2 text-gray-300 hover:text-accent">Contact Us</a>
+                <button class="w-full mt-2 gradient-gold text-dark-bg px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    See Demo
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="space-y-8 fade-in">
+                    <div class="space-y-4">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-tight">
+                            <span class="text-white">Welcome Space to</span><br>
+                            <span class="gradient-gold-text">Chronicle childhood</span><br>
+                            <span class="text-gray-300">eyatur baby's story  from day</span><br>
+                            <span class="text-gray-300">to year tiibctien.</span>
+                        </h1>
+                        
+                        <p class="text-lg text-gray-400 max-w-lg">
+                            Every moment maitres. Vain. Va pur plvace<br>
+                            even a story in one day c�nerabile<br>
+                            istoria uita.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Right Content - Magic Book -->
+                <div class="relative flex justify-center items-center">
+                    <div class="magic-book-container">
+                        <!-- Main Magic Book Image -->
+                        <img src="images/magicbook-sm.png" 
+                             alt="Magic Book with floating photos" 
+                             class="magic-book w-full max-w-lg h-auto transform hover:scale-105 transition-transform duration-500 drop-shadow-2xl"
+                             loading="lazy">
+                        
+                        <!-- Magical particles overlay -->
+                        <div class="particles absolute inset-0 pointer-events-none">
+                            <div class="particle absolute w-2 h-2 bg-accent rounded-full opacity-60"></div>
+                            <div class="particle absolute w-1 h-1 bg-accent rounded-full opacity-40"></div>
+                            <div class="particle absolute w-1.5 h-1.5 bg-accent rounded-full opacity-50"></div>
+                            <div class="particle absolute w-1 h-1 bg-accent rounded-full opacity-30"></div>
+                            <div class="particle absolute w-2 h-2 bg-accent rounded-full opacity-45"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-gradient py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-center gradient-gold-text mb-16">
+                Features That Grow With Family
+            </h2>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Magic Phone -->
+                <div class="flex justify-center slide-up">
+                    <div class="relative">
+                        <img src="images/magic-phone.png" 
+                             alt="Magic phone showcasing BabyJourney app features" 
+                             class="w-full max-w-sm h-auto transform hover:scale-105 transition-transform duration-500 drop-shadow-2xl"
+                             loading="lazy">
+                    </div>
+                </div>
+                
+                <!-- Features List -->
+                <div class="space-y-8 slide-up">
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-6 h-6 bg-accent rounded-full flex items-center justify-center mt-1">
+                                <svg class="w-4 h-4 text-dark-bg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white mb-2">Personal Baby Website</h3>
+                                <p class="text-gray-400">Your child's dil cjgliiss home  post photos; anytime. Watit  one sacrabic tmelne.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-6 h-6 bg-accent rounded-full flex items-center justify-center mt-1">
+                                <svg class="w-4 h-4 text-dark-bg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white mb-2">Smart Filters Based Navigation</h3>
+                                <p class="text-gray-400">Smart Filters & Hadtelcgg: jimcji ctlrees or cnteggns #Frctil dngn - switch fowal "School Days" - day lays.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-6 h-6 bg-accent rounded-full flex items-center justify-center mt-1">
+                                <svg class="w-4 h-4 text-dark-bg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white mb-2">Private & Secure Sharing</h3>
+                                <p class="text-gray-400">Poi incarda: Fotograffii, only, netitis. No data tracking. No dats, lirisc: love.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-6 border-t border-gray-700">
+                        <p class="text-gray-300 font-medium">
+                            <span class="text-accent">Search Everything:</span> Find special moots: fast
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="hero-gradient py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <!-- Pricing Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold gradient-gold-text mb-4">
+                    Choose Your Journey
+                </h2>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                    Every family's story is unique. Find the perfect plan to capture and preserve your baby's precious moments.
+                </p>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Basic Plan -->
+                <div class="bg-dark-secondary/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 relative hover:border-accent/50 transition-all duration-300 hover:scale-105">
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold text-white mb-2">Baby Steps</h3>
+                        <p class="text-gray-400 mb-6">Perfect for new parents getting started</p>
+                        <div class="mb-8">
+                            <span class="text-4xl font-bold text-white">$9</span>
+                            <span class="text-gray-400">/month</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">500 photos & videos</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Basic timeline</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Mobile app access</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Share with 5 family members</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full py-3 gradient-gold text-dark-bg font-medium rounded-xl hover:opacity-90 transition-all duration-300 transform hover:scale-105">
+                        Start Free Trial
+                    </button>
+                </div>
+
+                <!-- Popular Plan -->
+                <div class="bg-dark-secondary/50 backdrop-blur-sm border-2 border-accent rounded-2xl p-8 relative hover:scale-105 transition-all duration-300 shadow-xl">
+                    <!-- Popular Badge -->
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-accent text-dark-bg px-4 py-1 rounded-full text-sm font-medium">Most Popular</span>
+                    </div>
+                    
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold text-white mb-2">Growing Family</h3>
+                        <p class="text-gray-400 mb-6">Everything you need for the journey</p>
+                        <div class="mb-8">
+                            <span class="text-4xl font-bold text-white">$19</span>
+                            <span class="text-gray-400">/month</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Unlimited photos & videos</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Smart milestone tracking</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Advanced filters & search</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Share with unlimited family</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Monthly photo books</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full py-3 gradient-gold text-dark-bg font-medium rounded-xl hover:opacity-90 transition-all duration-300 transform hover:scale-105">
+                        Start Free Trial
+                    </button>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="bg-dark-secondary/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 relative hover:border-accent/50 transition-all duration-300 hover:scale-105">
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold text-white mb-2">Legacy Keeper</h3>
+                        <p class="text-gray-400 mb-6">The complete memory preservation suite</p>
+                        <div class="mb-8">
+                            <span class="text-4xl font-bold text-white">$39</span>
+                            <span class="text-gray-400">/month</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Everything in Growing Family</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">AI-powered memory insights</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Custom milestone templates</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Premium photo books & prints</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">Priority support</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full py-3 gradient-gold text-dark-bg font-medium rounded-xl hover:opacity-90 transition-all duration-300 transform hover:scale-105">
+                        Start Free Trial
+                    </button>
+                </div>
+            </div>
+
+            <!-- Money Back Guarantee -->
+            <div class="text-center mt-12">
+                <p class="text-gray-400 flex items-center justify-center space-x-2">
+                    <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span>30-day money-back guarantee • Cancel anytime • No setup fees</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Built for Memories Section -->
+    <section class="memories-gradient py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="space-y-8 slide-up">
+                    <div class="flex items-center space-x-4">
+                        <div class="text-accent">
+                            <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">
+                            Built for Memories.<br>Designed with Love.
+                        </h2>
+                    </div>
+                    
+                    <!-- Film Image -->
+                    <div class="w-full h-80 rounded-lg shadow-xl overflow-hidden">
+                        <img src="images/film.png" 
+                             alt="Film reel showcasing baby memories" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                             loading="lazy">
+                    </div>
+                </div>
+                
+                <!-- Right Content -->
+                <div class="space-y-8 slide-up">
+                    <div class="space-y-6">
+                        <p class="text-lg text-gray-300 leading-relaxed">
+                            Whether is sa first tit painnete exci shcir� first big game - BabyJourney, cife<br>
+                            Baby Journey: It keeps all one-es beautiful place.<br>
+                            beautiful place.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center lg:text-left">
+                        <button class="gradient-gold text-dark-bg px-8 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            BUILD THEIR STORY
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-gradient py-16 px-4 sm:px-6 lg:px-8 border-t border-gray-800 relative">
+        <div class="max-w-7xl mx-auto">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Brand Section -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-2xl font-bold text-white font-serif">BabyJourney.Life</span>
+                        <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Chronicle your baby's journey from first steps to first words. Every moment matters, every memory is precious.
+                    </p>
+                    <!-- Social Links -->
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.097.118.112.222.085.343-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.747 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.624 0 11.99-5.367 11.99-11.989C24.007 5.367 18.641.001 12.017.001z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Product</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#features" class="text-gray-400 hover:text-accent transition-colors duration-200">Features</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-accent transition-colors duration-200">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Support</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div class="border-t border-gray-800 pt-8 mb-8">
+                <div class="max-w-md mx-auto text-center lg:max-w-none lg:text-left lg:flex lg:items-center lg:justify-between">
+                    <div class="lg:flex-1">
+                        <h3 class="text-white font-semibold mb-2">Stay updated with baby milestones</h3>
+                        <p class="text-gray-400 text-sm">Get weekly tips and features to capture every precious moment.</p>
+                    </div>
+                    <div class="mt-4 lg:mt-0 lg:ml-8">
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <input 
+                                type="email" 
+                                placeholder="Enter your email"
+                                class="px-4 py-2 bg-dark-secondary border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-200"
+                            >
+                            <button class="px-6 py-2 gradient-gold text-dark-bg font-medium rounded-xl hover:opacity-90 transition-all duration-300 transform hover:scale-105 whitespace-nowrap">
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
+                    <p class="text-gray-400 text-sm">&copy; 2025 BabyJourney.Life. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 text-sm">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 text-sm">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 text-sm">Cookies</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2 text-gray-400 text-sm">
+                    <span>Made with</span>
+                    <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span>for families</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorative stars for footer -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden">
+            <div class="absolute top-10 left-10 w-1 h-1 bg-accent rounded-full opacity-60 animate-pulse"></div>
+            <div class="absolute top-20 right-20 w-2 h-2 bg-yellow-400 rounded-full opacity-40 animate-pulse" style="animation-delay: 1s;"></div>
+            <div class="absolute bottom-20 left-1/4 w-1 h-1 bg-accent rounded-full opacity-50 animate-pulse" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-10 right-1/3 w-1.5 h-1.5 bg-yellow-300 rounded-full opacity-60 animate-pulse" style="animation-delay: 0.5s;"></div>
+            <div class="absolute top-1/2 left-1/2 w-1 h-1 bg-accent rounded-full opacity-45 animate-pulse" style="animation-delay: 1.5s;"></div>
+        </div>
+    </footer>
+
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

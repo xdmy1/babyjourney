@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Onest:wght@100..900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -20,7 +20,9 @@
                     },
                     fontFamily: {
                         'sans': ['Onest', 'sans-serif'],
-                        'serif': ['Onest', 'serif'],
+                        'serif': ['Bricolage Grotesque', 'serif'],
+                        'display': ['Bricolage Grotesque', 'serif'],
+                        'body': ['Onest', 'sans-serif'],
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
@@ -33,7 +35,7 @@
         }
     </script>
 </head>
-<body class="bg-dark-bg text-gray-200 font-sans overflow-x-hidden">
+<body class="bg-dark-bg text-gray-200 font-body overflow-x-hidden">
     <!-- Beautiful Glowing Stars Layer -->
     <div class="fixed inset-0 z-0 pointer-events-none">
         <!-- Blue Glowing Stars -->
@@ -190,10 +192,20 @@
                 <!-- Navigation Links -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#features" class="text-gray-300 hover:text-accent transition-colors duration-200">Features</a>
-                        <a href="#pricing" class="text-gray-300 hover:text-accent transition-colors duration-200">Pricing</a>
-                        <a href="#" class="text-gray-300 hover:text-accent transition-colors duration-200">Contact Us</a>
-                        <button class="gradient-gold text-dark-bg px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                        <a href="#features" class="text-gray-300 hover:text-accent transition-colors duration-200" data-lang-key="nav.features">Features</a>
+                        <a href="#pricing" class="text-gray-300 hover:text-accent transition-colors duration-200" data-lang-key="nav.pricing">Pricing</a>
+                        <a href="#" class="text-gray-300 hover:text-accent transition-colors duration-200" data-lang-key="nav.contact">Contact Us</a>
+                        
+                        <!-- Language Switcher -->
+                        <div class="relative">
+                            <select id="languageSelector" class="bg-dark-secondary text-gray-300 border border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-accent transition-colors duration-200">
+                                <option value="en">EN</option>
+                                <option value="ro">RO</option>
+                                <option value="ru">RU</option>
+                            </select>
+                        </div>
+                        
+                        <button class="gradient-gold text-dark-bg px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl" data-lang-key="nav.demo">
                             See Demo
                         </button>
                     </div>
@@ -213,10 +225,20 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-dark-secondary">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#features" class="block px-3 py-2 text-gray-300 hover:text-accent">Features</a>
-                <a href="#pricing" class="block px-3 py-2 text-gray-300 hover:text-accent">Pricing</a>
-                <a href="#" class="block px-3 py-2 text-gray-300 hover:text-accent">Contact Us</a>
-                <button class="w-full mt-2 gradient-gold text-dark-bg px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <a href="#features" class="block px-3 py-2 text-gray-300 hover:text-accent" data-lang-key="nav.features">Features</a>
+                <a href="#pricing" class="block px-3 py-2 text-gray-300 hover:text-accent" data-lang-key="nav.pricing">Pricing</a>
+                <a href="#" class="block px-3 py-2 text-gray-300 hover:text-accent" data-lang-key="nav.contact">Contact Us</a>
+                
+                <!-- Language Switcher Mobile -->
+                <div class="px-3 py-2">
+                    <select id="languageSelectorMobile" class="w-full bg-dark-bg text-gray-300 border border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-accent transition-colors duration-200">
+                        <option value="en">EN</option>
+                        <option value="ro">RO</option>
+                        <option value="ru">RU</option>
+                    </select>
+                </div>
+                
+                <button class="w-full mt-2 gradient-gold text-dark-bg px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg" data-lang-key="nav.demo">
                     See Demo
                 </button>
             </div>
@@ -224,24 +246,30 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-gradient pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+    <section class="hero-gradient pt-32 lg:pt-40 pb-16 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Left Content -->
                 <div class="space-y-8 fade-in">
                     <div class="space-y-4">
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-tight">
-                            <span class="text-white">Welcome Space to</span><br>
-                            <span class="gradient-gold-text">Chronicle childhood</span><br>
-                            <span class="text-gray-300">eyatur baby's story  from day</span><br>
-                            <span class="text-gray-300">to year tiibctien.</span>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-tight">
+                            <span class="text-white" data-lang-key="hero.title.part1">Every moment matters. Capture your child's story —</span><br>
+                            <span class="gradient-gold-text" data-lang-key="hero.title.part2">from the first breath to the first dream.</span><br>
                         </h1>
                         
-                        <p class="text-lg text-gray-400 max-w-lg">
-                            Every moment maitres. Vain. Va pur plvace<br>
-                            even a story in one day c�nerabile<br>
-                            istoria uita.
+                        <p class="text-lg text-gray-400 max-w-lg" data-lang-key="hero.subtitle">
+                            A private digital home for every memory — safe, organized, and yours forever.
                         </p>
+                        
+                        <!-- CTA Buttons -->
+                        <div class="flex gap-3 pt-6 md:max-w-[400px]">
+                            <button class="flex-1 gradient-gold text-dark-bg px-6 py-2.5 rounded-lg font-body font-medium text-base hover:opacity-90 transition-all duration-300 transform hover:scale-102 shadow-md" data-lang-key="hero.demo">
+                                See Demo
+                            </button>
+                            <button class="flex-1 bg-transparent border border-accent text-accent px-6 py-2.5 rounded-lg font-body font-medium text-base hover:bg-accent hover:text-dark-bg transition-all duration-300 transform hover:scale-102 shadow-md" data-lang-key="hero.order">
+                                Order Now
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
@@ -270,26 +298,36 @@
         </div>
     </section>
 
+    <!-- Problem Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-dark-bg to-dark-secondary">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-white mb-8 leading-tight" data-lang-key="problem.title">
+                Your child's story is getting lost.
+            </h2>
+            
+            <div class="space-y-6 text-xl text-gray-300 mb-12">
+                <p data-lang-key="problem.line1">Photos are scattered across phones, chats, and clouds.</p>
+                <p data-lang-key="problem.line2">Memories fade. Accounts change. Privacy disappears.</p>
+            </div>
+            
+            <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-8 backdrop-blur-sm">
+                <p class="text-lg text-red-300 italic leading-relaxed" data-lang-key="problem.heartbreak">
+                    One day your child will ask: "Where are my baby photos?" — and most of them will be gone.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Features Section -->
-    <section id="features" class="features-gradient py-8 px-4 sm:px-6 lg:px-8">
+    <section id="features" class="features-gradient py-4 md:py-8 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-center gradient-gold-text mb-16">
+            <h2 class="text-3xl sm:text-4xl font-display font-bold text-center gradient-gold-text mb-16" data-lang-key="features.title">
                 Features That Grow With Family
             </h2>
             
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Magic Phone -->
-                <div class="flex justify-center slide-up">
-                    <div class="relative">
-                        <img src="images/magic-phone.png" 
-                             alt="Magic phone showcasing BabyJourney app features" 
-                             class="w-full max-w-sm h-auto transform hover:scale-105 transition-transform duration-500 drop-shadow-2xl"
-                             loading="lazy">
-                    </div>
-                </div>
-                
                 <!-- Features List -->
-                <div class="space-y-8 slide-up">
+                <div class="space-y-8 slide-up order-1 lg:order-1">
                     <div class="space-y-6">
                         <div class="flex items-start space-x-4">
                             <div class="flex-shrink-0 w-6 h-6 bg-accent rounded-full flex items-center justify-center mt-1">
@@ -298,8 +336,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-white mb-2">Personal Baby Website</h3>
-                                <p class="text-gray-400">Your child's dil cjgliiss home  post photos; anytime. Watit  one sacrabic tmelne.</p>
+                                <h3 class="font-display font-semibold text-white mb-2" data-lang-key="features.website.title">Personal Baby Website</h3>
+                                <p class="text-gray-400" data-lang-key="features.website.description">Your child's digital home — post photos anytime. Watch them grow in one beautiful timeline.</p>
                             </div>
                         </div>
                         
@@ -310,8 +348,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-white mb-2">Smart Filters Based Navigation</h3>
-                                <p class="text-gray-400">Smart Filters & Hadtelcgg: jimcji ctlrees or cnteggns #Frctil dngn - switch fowal "School Days" - day lays.</p>
+                                <h3 class="font-display font-semibold text-white mb-2" data-lang-key="features.filters.title">Smart Filters Based Navigation</h3>
+                                <p class="text-gray-400" data-lang-key="features.filters.description">Smart Filters & Categories: #FirstSteps #SchoolDays — find memories instantly.</p>
                             </div>
                         </div>
                         
@@ -322,16 +360,105 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-white mb-2">Private & Secure Sharing</h3>
-                                <p class="text-gray-400">Poi incarda: Fotograffii, only, netitis. No data tracking. No dats, lirisc: love.</p>
+                                <h3 class="font-display font-semibold text-white mb-2" data-lang-key="features.sharing.title">Private & Secure Sharing</h3>
+                                <p class="text-gray-400" data-lang-key="features.sharing.description">Private & secure. Photos only you and family see. No data tracking. No ads. Only love.</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="pt-6 border-t border-gray-700">
-                        <p class="text-gray-300 font-medium">
-                            <span class="text-accent">Search Everything:</span> Find special moots: fast
+                        <p class="text-gray-300 font-medium" data-lang-key="features.search">
+                            <span class="text-accent">Search Everything:</span> Find special moments fast
                         </p>
+                    </div>
+                </div>
+                
+                <!-- Magic Phone -->
+                <div class="flex justify-center slide-up order-2 lg:order-2 mt-12 lg:mt-0">
+                    <div class="relative">
+                        <img src="images/magic-phone.png" 
+                             alt="Magic phone showcasing BabyJourney app features" 
+                             class="w-full max-w-sm h-auto transform hover:scale-105 transition-transform duration-500 drop-shadow-2xl"
+                             loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-dark-secondary to-dark-bg">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-white mb-8 leading-tight" data-lang-key="solution.title">
+                    Imagine a private timeline that grows with your child.
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-lang-key="solution.subtitle">
+                    From their first smile to their first school day — every memory, safe and easy to find.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Features List -->
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mt-1">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-300" data-lang-key="solution.features" data-array-index="0">Private and encrypted timeline (no social media, no tracking)</p>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mt-1">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-300" data-lang-key="solution.features" data-array-index="1">Upload photos, videos, and stories</p>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mt-1">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-300" data-lang-key="solution.features" data-array-index="2">Add multiple children and share with family</p>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mt-1">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-300" data-lang-key="solution.features" data-array-index="3">Filter by milestones, categories, and hashtags</p>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mt-1">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-300" data-lang-key="solution.features" data-array-index="4">Option to print a yearly photo book</p>
+                    </div>
+                </div>
+                
+                <!-- Visual placeholder -->
+                <div class="flex justify-center">
+                    <div class="w-full max-w-md h-96 bg-gradient-to-br from-accent/20 to-purple-500/20 rounded-2xl border border-accent/30 flex items-center justify-center backdrop-blur-sm">
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-accent/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-10 h-10 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z"></path>
+                                    <path fill-rule="evenodd" d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <p class="text-accent font-medium">Your Child's Timeline</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -343,10 +470,10 @@
         <div class="max-w-7xl mx-auto">
             <!-- Pricing Header -->
             <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-serif font-bold gradient-gold-text mb-4">
+                <h2 class="text-3xl sm:text-4xl font-display font-bold gradient-gold-text mb-4" data-lang-key="pricing.title">
                     Choose Your Journey
                 </h2>
-                <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto" data-lang-key="pricing.subtitle">
                     Every family's story is unique. Find the perfect plan to capture and preserve your baby's precious moments.
                 </p>
             </div>
@@ -356,10 +483,12 @@
                 <!-- Basic Plan -->
                 <div class="bg-dark-secondary/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 relative hover:border-accent/50 transition-all duration-300 hover:scale-105">
                     <div class="text-center">
-                        <h3 class="text-xl font-semibold text-white mb-2">Baby Steps</h3>
-                        <p class="text-gray-400 mb-6">Perfect for new parents getting started</p>
+                        <h3 class="text-xl font-display font-semibold text-white mb-2" data-lang-key="pricing.plans.basic.name">Baby Steps</h3>
+                        <p class="text-gray-400 mb-6" data-lang-key="pricing.plans.basic.description">Perfect for new parents getting started</p>
                         <div class="mb-8">
-                            <span class="text-4xl font-bold text-white">$9</span>
+                            <span class="text-3xl font-bold text-white">$100</span>
+                            <span class="text-gray-400"> + </span>
+                            <span class="text-xl font-bold text-white">$8</span>
                             <span class="text-gray-400">/month</span>
                         </div>
                     </div>
@@ -369,30 +498,30 @@
                             <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-300">500 photos & videos</span>
+                            <span class="text-gray-300" data-lang-key="pricing.plans.basic.features" data-array-index="0">500 photos & videos</span>
                         </li>
                         <li class="flex items-center space-x-3">
                             <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-300">Basic timeline</span>
+                            <span class="text-gray-300" data-lang-key="pricing.plans.basic.features" data-array-index="1">Basic timeline</span>
                         </li>
                         <li class="flex items-center space-x-3">
                             <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-300">Mobile app access</span>
+                            <span class="text-gray-300" data-lang-key="pricing.plans.basic.features" data-array-index="2">Mobile app access</span>
                         </li>
                         <li class="flex items-center space-x-3">
                             <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-300">Share with 5 family members</span>
+                            <span class="text-gray-300" data-lang-key="pricing.plans.basic.features" data-array-index="3">Share with 5 family members</span>
                         </li>
                     </ul>
                     
-                    <button class="w-full py-3 gradient-gold text-dark-bg font-medium rounded-xl hover:opacity-90 transition-all duration-300 transform hover:scale-105">
-                        Start Free Trial
+                    <button class="w-full py-3 gradient-gold text-dark-bg font-medium rounded-xl hover:opacity-90 transition-all duration-300 transform hover:scale-105" data-lang-key="pricing.cta">
+                        Get Started
                     </button>
                 </div>
 
@@ -400,14 +529,16 @@
                 <div class="bg-dark-secondary/50 backdrop-blur-sm border-2 border-accent rounded-2xl p-8 relative hover:scale-105 transition-all duration-300 shadow-xl">
                     <!-- Popular Badge -->
                     <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                        <span class="bg-accent text-dark-bg px-4 py-1 rounded-full text-sm font-medium">Most Popular</span>
+                        <span class="bg-accent text-dark-bg px-4 py-1 rounded-full text-sm font-medium" data-lang-key="pricing.plans.popular.badge">Most Popular</span>
                     </div>
                     
                     <div class="text-center">
-                        <h3 class="text-xl font-semibold text-white mb-2">Growing Family</h3>
-                        <p class="text-gray-400 mb-6">Everything you need for the journey</p>
+                        <h3 class="text-xl font-display font-semibold text-white mb-2" data-lang-key="pricing.plans.popular.name">Growing Family</h3>
+                        <p class="text-gray-400 mb-6" data-lang-key="pricing.plans.popular.description">Everything you need for the journey</p>
                         <div class="mb-8">
-                            <span class="text-4xl font-bold text-white">$19</span>
+                            <span class="text-3xl font-bold text-white">$150</span>
+                            <span class="text-gray-400"> + </span>
+                            <span class="text-xl font-bold text-white">$5</span>
                             <span class="text-gray-400">/month</span>
                         </div>
                     </div>
@@ -417,46 +548,48 @@
                             <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-300">Unlimited photos & videos</span>
+                            <span class="text-gray-300" data-lang-key="pricing.plans.popular.features" data-array-index="0">Unlimited photos & videos</span>
                         </li>
                         <li class="flex items-center space-x-3">
                             <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-300">Smart milestone tracking</span>
+                            <span class="text-gray-300" data-lang-key="pricing.plans.popular.features" data-array-index="1">Smart milestone tracking</span>
                         </li>
                         <li class="flex items-center space-x-3">
                             <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-300">Advanced filters & search</span>
+                            <span class="text-gray-300" data-lang-key="pricing.plans.popular.features" data-array-index="2">Advanced filters & search</span>
                         </li>
                         <li class="flex items-center space-x-3">
                             <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-300">Share with unlimited family</span>
+                            <span class="text-gray-300" data-lang-key="pricing.plans.popular.features" data-array-index="3">Share with unlimited family</span>
                         </li>
                         <li class="flex items-center space-x-3">
                             <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-300">Monthly photo books</span>
+                            <span class="text-gray-300" data-lang-key="pricing.plans.popular.features" data-array-index="4">Monthly photo books</span>
                         </li>
                     </ul>
                     
-                    <button class="w-full py-3 gradient-gold text-dark-bg font-medium rounded-xl hover:opacity-90 transition-all duration-300 transform hover:scale-105">
-                        Start Free Trial
+                    <button class="w-full py-3 gradient-gold text-dark-bg font-medium rounded-xl hover:opacity-90 transition-all duration-300 transform hover:scale-105" data-lang-key="pricing.cta">
+                        Get Started
                     </button>
                 </div>
 
                 <!-- Premium Plan -->
                 <div class="bg-dark-secondary/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 relative hover:border-accent/50 transition-all duration-300 hover:scale-105">
                     <div class="text-center">
-                        <h3 class="text-xl font-semibold text-white mb-2">Legacy Keeper</h3>
-                        <p class="text-gray-400 mb-6">The complete memory preservation suite</p>
+                        <h3 class="text-xl font-display font-semibold text-white mb-2" data-lang-key="pricing.plans.premium.name">Legacy Keeper</h3>
+                        <p class="text-gray-400 mb-6" data-lang-key="pricing.plans.premium.description">The complete memory preservation suite</p>
                         <div class="mb-8">
-                            <span class="text-4xl font-bold text-white">$39</span>
+                            <span class="text-3xl font-bold text-white">$200</span>
+                            <span class="text-gray-400"> + </span>
+                            <span class="text-xl font-bold text-white">$3</span>
                             <span class="text-gray-400">/month</span>
                         </div>
                     </div>
@@ -466,36 +599,36 @@
                             <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-300">Everything in Growing Family</span>
+                            <span class="text-gray-300" data-lang-key="pricing.plans.premium.features" data-array-index="0">Everything in Growing Family</span>
                         </li>
                         <li class="flex items-center space-x-3">
                             <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-300">AI-powered memory insights</span>
+                            <span class="text-gray-300" data-lang-key="pricing.plans.premium.features" data-array-index="1">AI-powered memory insights</span>
                         </li>
                         <li class="flex items-center space-x-3">
                             <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-300">Custom milestone templates</span>
+                            <span class="text-gray-300" data-lang-key="pricing.plans.premium.features" data-array-index="2">Custom milestone templates</span>
                         </li>
                         <li class="flex items-center space-x-3">
                             <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-300">Premium photo books & prints</span>
+                            <span class="text-gray-300" data-lang-key="pricing.plans.premium.features" data-array-index="3">Premium photo books & prints</span>
                         </li>
                         <li class="flex items-center space-x-3">
                             <svg class="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-300">Priority support</span>
+                            <span class="text-gray-300" data-lang-key="pricing.plans.premium.features" data-array-index="4">Priority support</span>
                         </li>
                     </ul>
                     
-                    <button class="w-full py-3 gradient-gold text-dark-bg font-medium rounded-xl hover:opacity-90 transition-all duration-300 transform hover:scale-105">
-                        Start Free Trial
+                    <button class="w-full py-3 gradient-gold text-dark-bg font-medium rounded-xl hover:opacity-90 transition-all duration-300 transform hover:scale-105" data-lang-key="pricing.cta">
+                        Get Started
                     </button>
                 </div>
             </div>
@@ -506,54 +639,171 @@
                     <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                     </svg>
-                    <span>30-day money-back guarantee • Cancel anytime • No setup fees</span>
+                    <span data-lang-key="pricing.guarantee">30-day money-back guarantee • Cancel anytime • No setup fees</span>
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Built for Memories Section -->
-    <section class="memories-gradient py-16 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Left Content -->
-                <div class="space-y-8 slide-up">
-                    <div class="flex items-center space-x-4">
-                        <div class="text-accent">
-                            <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+    <!-- Visual Demo Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-dark-bg to-dark-secondary">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-white mb-12" data-lang-key="demo.title">
+                See How It Works
+            </h2>
+            
+            <div class="mb-12">
+                <button class="inline-flex items-center px-12 py-6 bg-gradient-to-r from-accent to-yellow-400 text-dark-bg font-bold text-xl rounded-2xl hover:from-yellow-400 hover:to-accent transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-accent/25" data-lang-key="demo.cta">
+                    <svg class="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M8 5v10l7-5z"></path>
+                    </svg>
+                    DEMO
+                </button>
+            </div>
+            
+            <!-- Demo Video Placeholder -->
+            <div class="relative max-w-3xl mx-auto">
+                <div class="aspect-video bg-gradient-to-br from-gray-900 to-black rounded-2xl border border-gray-700 flex items-center justify-center overflow-hidden shadow-2xl">
+                    <div class="text-center">
+                        <div class="w-24 h-24 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+                            <svg class="w-12 h-12 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M8 5v10l7-5z"></path>
                             </svg>
                         </div>
-                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">
-                            Built for Memories.<br>Designed with Love.
-                        </h2>
-                    </div>
-                    
-                    <!-- Film Image -->
-                    <div class="w-full h-80 rounded-lg shadow-xl overflow-hidden">
-                        <img src="images/film.png" 
-                             alt="Film reel showcasing baby memories" 
-                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                             loading="lazy">
+                        <p class="text-gray-400 text-lg">Interactive Demo Coming Soon</p>
                     </div>
                 </div>
                 
-                <!-- Right Content -->
-                <div class="space-y-8 slide-up">
-                    <div class="space-y-6">
-                        <p class="text-lg text-gray-300 leading-relaxed">
-                            Whether is sa first tit painnete exci shcir� first big game - BabyJourney, cife<br>
-                            Baby Journey: It keeps all one-es beautiful place.<br>
-                            beautiful place.
-                        </p>
+                <!-- Decorative elements -->
+                <div class="absolute -top-4 -right-4 w-8 h-8 bg-accent/30 rounded-full animate-pulse"></div>
+                <div class="absolute -bottom-4 -left-4 w-6 h-6 bg-purple-400/30 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-dark-secondary to-dark-bg">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-white mb-8 leading-tight" data-lang-key="about.title">
+                We're parents, not a tech company.
+            </h2>
+            
+            <p class="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto" data-lang-key="about.description">
+                BabyJourney.life was born from our desire to protect our children's memories — not share them with algorithms.
+            </p>
+            
+            <!-- Visual element -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+                        </svg>
                     </div>
-                    
-                    <div class="text-center lg:text-left">
-                        <button class="gradient-gold text-dark-bg px-8 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                            BUILD THEIR STORY
-                        </button>
-                    </div>
+                    <p class="text-gray-400">Made with Love</p>
                 </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <p class="text-gray-400">Privacy First</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <p class="text-gray-400">Family Focused</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-dark-bg to-dark-secondary">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl font-display font-bold text-center text-white mb-16" data-lang-key="faq.title">
+                FAQ
+            </h2>
+            
+            <div class="space-y-8">
+                <!-- FAQ Item 1 -->
+                <div class="border border-gray-700 rounded-xl overflow-hidden bg-dark-secondary/50 backdrop-blur-sm">
+                    <details class="group">
+                        <summary class="flex justify-between items-center p-6 cursor-pointer hover:bg-gray-800/30 transition-colors duration-200">
+                            <h3 class="text-lg font-semibold text-white" data-lang-key="faq.questions" data-array-index="0" data-prop="q">Is my data really private?</h3>
+                            <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </summary>
+                        <div class="px-6 pb-6">
+                            <p class="text-gray-300 leading-relaxed" data-lang-key="faq.questions" data-array-index="0" data-prop="a">Yes. Everything is encrypted. No one can access it except you and those you invite.</p>
+                        </div>
+                    </details>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="border border-gray-700 rounded-xl overflow-hidden bg-dark-secondary/50 backdrop-blur-sm">
+                    <details class="group">
+                        <summary class="flex justify-between items-center p-6 cursor-pointer hover:bg-gray-800/30 transition-colors duration-200">
+                            <h3 class="text-lg font-semibold text-white" data-lang-key="faq.questions" data-array-index="1" data-prop="q">Can I add multiple children?</h3>
+                            <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </summary>
+                        <div class="px-6 pb-6">
+                            <p class="text-gray-300 leading-relaxed" data-lang-key="faq.questions" data-array-index="1" data-prop="a">Absolutely. Each child has their own timeline.</p>
+                        </div>
+                    </details>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="border border-gray-700 rounded-xl overflow-hidden bg-dark-secondary/50 backdrop-blur-sm">
+                    <details class="group">
+                        <summary class="flex justify-between items-center p-6 cursor-pointer hover:bg-gray-800/30 transition-colors duration-200">
+                            <h3 class="text-lg font-semibold text-white" data-lang-key="faq.questions" data-array-index="2" data-prop="q">How is this different from social media?</h3>
+                            <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </summary>
+                        <div class="px-6 pb-6">
+                            <p class="text-gray-300 leading-relaxed" data-lang-key="faq.questions" data-array-index="2" data-prop="a">No comments, no likes, no tracking — just your family story, safe forever.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            
+            <!-- Read More Button -->
+            <div class="text-center mt-12">
+                <button class="px-8 py-3 border border-accent text-accent hover:bg-accent hover:text-dark-bg transition-all duration-300 transform hover:scale-105 rounded-xl font-medium" data-lang-key="faq.readMore">
+                    READ MORE
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-dark-secondary to-dark-bg">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-white mb-6" data-lang-key="cta.title">
+                BabyJourney.life — Every moment matters.
+            </h2>
+            <p class="text-2xl text-gray-300 mb-12" data-lang-key="cta.subtitle">
+                Private. Secure. Forever yours.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
+                <button class="flex-1 gradient-gold text-dark-bg px-8 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    Get Started
+                </button>
+                <button class="flex-1 border border-accent text-accent px-8 py-4 rounded-xl font-semibold text-lg hover:bg-accent hover:text-dark-bg transition-all duration-300 transform hover:scale-105">
+                    See Demo
+                </button>
             </div>
         </div>
     </section>
@@ -566,12 +816,12 @@
                 <!-- Brand Section -->
                 <div class="lg:col-span-1">
                     <div class="flex items-center space-x-2 mb-4">
-                        <span class="text-2xl font-bold text-white font-serif">BabyJourney.Life</span>
+                        <span class="text-2xl font-bold text-white font-display">BabyJourney.Life</span>
                         <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
                         </svg>
                     </div>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
+                    <p class="text-gray-400 mb-6 leading-relaxed" data-lang-key="footer.description">
                         Chronicle your baby's journey from first steps to first words. Every moment matters, every memory is precious.
                     </p>
                     <!-- Social Links -->
@@ -601,26 +851,26 @@
 
                 <!-- Product -->
                 <div>
-                    <h3 class="text-white font-semibold mb-4">Product</h3>
+                    <h3 class="text-white font-display font-semibold mb-4" data-lang-key="footer.sections.product">Product</h3>
                     <ul class="space-y-3">
-                        <li><a href="#features" class="text-gray-400 hover:text-accent transition-colors duration-200">Features</a></li>
-                        <li><a href="#pricing" class="text-gray-400 hover:text-accent transition-colors duration-200">Pricing</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-accent transition-colors duration-200" data-lang-key="footer.links.features">Features</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-accent transition-colors duration-200" data-lang-key="footer.links.pricing">Pricing</a></li>
                     </ul>
                 </div>
 
                 <!-- Support -->
                 <div>
-                    <h3 class="text-white font-semibold mb-4">Support</h3>
+                    <h3 class="text-white font-display font-semibold mb-4" data-lang-key="footer.sections.support">Support</h3>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200" data-lang-key="footer.links.contact">Contact Us</a></li>
                     </ul>
                 </div>
 
                 <!-- Company -->
                 <div>
-                    <h3 class="text-white font-semibold mb-4">Company</h3>
+                    <h3 class="text-white font-display font-semibold mb-4" data-lang-key="footer.sections.company">Company</h3>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200" data-lang-key="footer.links.about">About Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -629,17 +879,17 @@
             <div class="border-t border-gray-800 pt-8 mb-8">
                 <div class="max-w-md mx-auto text-center lg:max-w-none lg:text-left lg:flex lg:items-center lg:justify-between">
                     <div class="lg:flex-1">
-                        <h3 class="text-white font-semibold mb-2">Stay updated with baby milestones</h3>
-                        <p class="text-gray-400 text-sm">Get weekly tips and features to capture every precious moment.</p>
+                        <h3 class="text-white font-display font-semibold mb-2" data-lang-key="footer.newsletter.title">Stay updated with baby milestones</h3>
+                        <p class="text-gray-400 text-sm" data-lang-key="footer.newsletter.subtitle">Get weekly tips and features to capture every precious moment.</p>
                     </div>
                     <div class="mt-4 lg:mt-0 lg:ml-8">
                         <div class="flex flex-col sm:flex-row gap-3">
                             <input 
                                 type="email" 
-                                placeholder="Enter your email"
+                                placeholder="Enter your email" data-lang-key-placeholder="footer.newsletter.placeholder"
                                 class="px-4 py-2 bg-dark-secondary border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-200"
                             >
-                            <button class="px-6 py-2 gradient-gold text-dark-bg font-medium rounded-xl hover:opacity-90 transition-all duration-300 transform hover:scale-105 whitespace-nowrap">
+                            <button class="px-6 py-2 gradient-gold text-dark-bg font-medium rounded-xl hover:opacity-90 transition-all duration-300 transform hover:scale-105 whitespace-nowrap" data-lang-key="footer.newsletter.subscribe">
                                 Subscribe
                             </button>
                         </div>
@@ -650,19 +900,19 @@
             <!-- Bottom Footer -->
             <div class="border-t border-gray-800 pt-8 flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
                 <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
-                    <p class="text-gray-400 text-sm">&copy; 2025 BabyJourney.Life. All rights reserved.</p>
+                    <p class="text-gray-400 text-sm" data-lang-key="footer.copyright">&copy; 2025 BabyJourney.Life. All rights reserved.</p>
                     <div class="flex space-x-6">
-                        <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 text-sm">Privacy Policy</a>
-                        <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 text-sm">Terms of Service</a>
-                        <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 text-sm">Cookies</a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 text-sm" data-lang-key="footer.links.privacy">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 text-sm" data-lang-key="footer.links.terms">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-200 text-sm" data-lang-key="footer.links.cookies">Cookies</a>
                     </div>
                 </div>
                 <div class="flex items-center space-x-2 text-gray-400 text-sm">
-                    <span>Made with</span>
+                    <span data-lang-key="footer.madeWith">Made with</span>
                     <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
                     </svg>
-                    <span>for families</span>
+                    <span data-lang-key="footer.forFamilies">for families</span>
                 </div>
             </div>
         </div>
@@ -677,6 +927,202 @@
         </div>
     </footer>
 
+    <script>
+        // Inline language switching functionality
+        console.log('Inline script loaded');
+        
+        const translations = {
+            en: {
+                nav: { features: "Features", pricing: "Pricing", contact: "Contact Us", demo: "See Demo" },
+                hero: {
+                    title: { part1: "Every moment matters. Capture your child's story —", part2: "from the first breath to the first dream." },
+                    subtitle: "A private digital home for every memory — safe, organized, and yours forever.",
+                    demo: "See Demo", order: "Order Now"
+                },
+                features: {
+                    title: "Features That Grow With Family",
+                    website: { title: "Personal Baby Website", description: "Your child's digital home — post photos anytime. Watch them grow in one beautiful timeline." },
+                    filters: { title: "Smart Filters Based Navigation", description: "Smart Filters & Categories: #FirstSteps #SchoolDays — find memories instantly." },
+                    sharing: { title: "Private & Secure Sharing", description: "Private & secure. Photos only you and family see. No data tracking. No ads. Only love." },
+                    search: "Search Everything: Find special moments fast"
+                },
+                pricing: {
+                    title: "Choose Your Journey", subtitle: "Every family's story is unique. Find the perfect plan to capture and preserve your baby's precious moments.",
+                    plans: {
+                        basic: { name: "Baby Steps", description: "Perfect for new parents getting started", features: ["500 photos & videos", "Basic timeline", "Mobile app access", "Share with 5 family members"] },
+                        popular: { name: "Growing Family", description: "Everything you need for the journey", badge: "Most Popular", features: ["Unlimited photos & videos", "Smart milestone tracking", "Advanced filters & search", "Share with unlimited family", "Monthly photo books"] },
+                        premium: { name: "Legacy Keeper", description: "The complete memory preservation suite", features: ["Everything in Growing Family", "AI-powered memory insights", "Custom milestone templates", "Premium photo books & prints", "Priority support"] }
+                    },
+                    cta: "Get Started", guarantee: "30-day money-back guarantee • Cancel anytime • No setup fees"
+                },
+                problem: { title: "Your child's story is getting lost.", line1: "Photos are scattered across phones, chats, and clouds.", line2: "Memories fade. Accounts change. Privacy disappears.", heartbreak: "One day your child will ask: \"Where are my baby photos?\" — and most of them will be gone." },
+                solution: { title: "Imagine a private timeline that grows with your child.", subtitle: "From their first smile to their first school day — every memory, safe and easy to find.", features: ["Private and encrypted timeline (no social media, no tracking)", "Upload photos, videos, and stories", "Add multiple children and share with family", "Filter by milestones, categories, and hashtags", "Option to print a yearly photo book"] },
+                demo: { title: "See How It Works", cta: "DEMO" },
+                about: { title: "We're parents, not a tech company.", description: "BabyJourney.life was born from our desire to protect our children's memories — not share them with algorithms." },
+                faq: { title: "FAQ", readMore: "READ MORE", questions: [{ q: "Is my data really private?", a: "Yes. Everything is encrypted. No one can access it except you and those you invite." }, { q: "Can I add multiple children?", a: "Absolutely. Each child has their own timeline." }, { q: "How is this different from social media?", a: "No comments, no likes, no tracking — just your family story, safe forever." }] },
+                cta: { title: "BabyJourney.life — Every moment matters.", subtitle: "Private. Secure. Forever yours." },
+                footer: { description: "Chronicle your baby's journey from first steps to first words. Every moment matters, every memory is precious.", sections: { product: "Product", support: "Support", company: "Company" }, links: { features: "Features", pricing: "Pricing", contact: "Contact Us", about: "About Us", privacy: "Privacy Policy", terms: "Terms of Service", cookies: "Cookies" }, newsletter: { title: "Stay updated with baby milestones", subtitle: "Get weekly tips and features to capture every precious moment.", placeholder: "Enter your email", subscribe: "Subscribe" }, copyright: "© 2025 BabyJourney.Life. All rights reserved.", madeWith: "Made with", forFamilies: "for families" }
+            },
+            ro: {
+                nav: { features: "Funcții", pricing: "Prețuri", contact: "Contactează-ne", demo: "Vezi Demo" },
+                hero: {
+                    title: { part1: "Fiecare moment contează. Păstrează povestea copilului tău —", part2: "de la primul zâmbet până la primul vis." },
+                    subtitle: "Un spațiu digital privat pentru toate amintirile — sigur, organizat și doar al vostru.",
+                    demo: "Vezi Demo", order: "Comandă Acum"
+                },
+                features: {
+                    title: "Funcții Care Cresc Cu Familia",
+                    website: { title: "Site Personal Pentru Copil", description: "Casa digitală a copilului tău — posteaza fotografii oricând. Urmărește-l cum crește într-o cronologie frumoasă." },
+                    filters: { title: "Navigare Bazată Pe Filtre Inteligente", description: "Filtre Inteligente & Categorii: #PrimiiPași #ZileleDeȘcoală — găsește amintiri instant." },
+                    sharing: { title: "Partajare Privată & Sigură", description: "Privat & sigur. Fotografii pe care doar tu și familia le vedeți. Fără urmărire date. Fără reclame. Doar dragoste." },
+                    search: "Caută Totul: Găsește momente speciale rapid"
+                },
+                pricing: {
+                    title: "Alege-ți Călătoria", subtitle: "Fiecare familie are o poveste unică. Găsește planul perfect pentru a capta și păstra momentele prețioase ale copilului tău.",
+                    plans: {
+                        basic: { name: "Primii Pași", description: "Perfect pentru părinții noi care încep", features: ["500 fotografii & videoclipuri", "Cronologie de bază", "Acces aplicație mobilă", "Partajare cu 5 membri ai familiei"] },
+                        popular: { name: "Familia În Creștere", description: "Tot ce aveți nevoie pentru călătorie", badge: "Cel Mai Popular", features: ["Fotografii & videoclipuri nelimitate", "Urmărirea inteligentă a etapelor", "Filtre avansate & căutare", "Partajare cu familie nelimitată", "Albume foto lunare"] },
+                        premium: { name: "Păstrătorul Moștenirii", description: "Suita completă pentru păstrarea amintirilor", features: ["Tot din Familia În Creștere", "Perspective AI asupra amintirilor", "Șabloane personalizate pentru etape", "Albume foto & tipărituri premium", "Suport prioritar"] }
+                    },
+                    cta: "Începe", guarantee: "Garanție 30 zile înapoi banii • Anulare oricând • Fără taxe de configurare"
+                },
+                problem: { title: "Povestea copilului tău se pierde.", line1: "Fotografiile sunt răspândite prin telefoane, chat-uri și cloud.", line2: "Amintirile se estompează. Confidențialitatea dispare.", heartbreak: "Într-o zi, copilul tău te va întreba: „Unde sunt pozele mele de când eram mic? — și multe nu vor mai exista." },
+                solution: { title: "Imaginează-ți o cronologie privată care crește odată cu copilul tău.", subtitle: "De la primul zâmbet până la prima zi de școală — fiecare amintire este păstrată în siguranță.", features: ["Cronologie privată și criptată (fără rețele sociale, fără urmărire)", "Încarcă poze, videoclipuri și amintiri", "Adaugă mai mulți copii și partajează cu familia", "Filtrare după categorii, momente și hashtag-uri", "Opțional: album foto anual tipărit"] },
+                demo: { title: "Vezi cum funcționează", cta: "DEMO" },
+                about: { title: "Suntem părinți, nu o companie tech.", description: "BabyJourney.life s-a născut din dorința de a proteja amintirile copiilor noștri — nu de a le împărtăși algoritmilor." },
+                faq: { title: "FAQ", readMore: "CITEȘTE MAI MULT", questions: [{ q: "Datele mele sunt într-adevăr private?", a: "Da. Totul este criptat. Doar tu și persoanele invitate aveți acces." }, { q: "Pot adăuga mai mulți copii?", a: "Desigur. Fiecare copil are propria sa cronologie." }, { q: "Cum diferă de rețelele sociale?", a: "Fără comentarii, fără like-uri, fără urmărire — doar povestea familiei tale, păstrată pentru totdeauna." }] },
+                cta: { title: "BabyJourney.life — Fiecare moment contează.", subtitle: "Privat. Sigur. Al vostru pentru totdeauna." },
+                footer: { description: "Cronica călătoriei copilului tău de la primii pași la primele cuvinte. Fiecare moment contează, fiecare amintire este prețioasă.", sections: { product: "Produs", support: "Suport", company: "Companie" }, links: { features: "Funcții", pricing: "Prețuri", contact: "Contactează-ne", about: "Despre Noi", privacy: "Politica de Confidențialitate", terms: "Termenii Serviciului", cookies: "Cookie-uri" }, newsletter: { title: "Rămâi la curent cu etapele copilului", subtitle: "Primește sfaturi săptămânale și funcții pentru a capta fiecare moment prețios.", placeholder: "Introdu emailul tău", subscribe: "Abonează-te" }, copyright: "© 2025 BabyJourney.Life. Toate drepturile rezervate.", madeWith: "Făcut cu", forFamilies: "pentru familii" }
+            },
+            ru: {
+                nav: { features: "Функции", pricing: "Цены", contact: "Связаться с нами", demo: "Посмотреть демо" },
+                hero: {
+                    title: { part1: "Каждый момент важен. Сохрани историю своего ребёнка —", part2: "от первого вдоха до первой мечты." },
+                    subtitle: "Частное цифровое пространство для всех воспоминаний — безопасное, упорядоченное и только ваше.",
+                    demo: "Посмотреть демо", order: "Заказать сейчас"
+                },
+                features: {
+                    title: "Функции, Растущие С Семьей",
+                    website: { title: "Персональный Сайт Ребёнка", description: "Цифровой дом вашего ребёнка — публикуйте фото в любое время. Наблюдайте, как они растут в красивой хронологии." },
+                    filters: { title: "Навигация На Основе Умных Фильтров", description: "Умные Фильтры & Категории: #ПервыеШаги #ШкольныеДни — находите воспоминания мгновенно." },
+                    sharing: { title: "Частный & Безопасный Обмен", description: "Частное & безопасное. Фотографии видите только вы и семья. Никакого отслеживания данных. Никакой рекламы. Только любовь." },
+                    search: "Поиск Всего: Быстро находите особые моменты"
+                },
+                pricing: {
+                    title: "Выберите Ваш Путь", subtitle: "История каждой семьи уникальна. Найдите идеальный план для захвата и сохранения драгоценных моментов вашего малыша.",
+                    plans: {
+                        basic: { name: "Детские Шаги", description: "Идеально для молодых родителей", features: ["500 фото и видео", "Базовая хронология", "Доступ к мобильному приложению", "Обмен с 5 членами семьи"] },
+                        popular: { name: "Растущая Семья", description: "Всё что нужно для путешествия", badge: "Самый Популярный", features: ["Неограниченные фото и видео", "Умное отслеживание этапов", "Расширенные фильтры и поиск", "Обмен с неограниченной семьёй", "Ежемесячные фотокниги"] },
+                        premium: { name: "Хранитель Наследия", description: "Полный набор для сохранения воспоминаний", features: ["Всё из Растущей Семьи", "ИИ-анализ воспоминаний", "Индивидуальные шаблоны этапов", "Премиум фотокниги и печать", "Приоритетная поддержка"] }
+                    },
+                    cta: "Начать", guarantee: "30-дневная гарантия возврата денег • Отмена в любое время • Без комиссий за настройку"
+                },
+                problem: { title: "История твоего ребёнка теряется.", line1: "Фотографии разбросаны по телефонам, чатам и облакам.", line2: "Воспоминания исчезают. Аккаунты меняются. Приватность пропадает.", heartbreak: "Однажды твой ребёнок спросит: «Где мои детские фотографии?» — и большинства из них уже не будет." },
+                solution: { title: "Представь себе частную хронологию, которая растёт вместе с твоим ребёнком.", subtitle: "От первой улыбки до первого дня в школе — каждое воспоминание в безопасности и легко находится.", features: ["Частная и зашифрованная хронология (никаких соцсетей, никакого отслеживания)", "Загружай фото, видео и истории", "Добавляй нескольких детей и делись с семьёй", "Фильтруй по этапам, категориям и хэштегам", "Опционально: печать ежегодного фотоальбома"] },
+                demo: { title: "Посмотри, как это работает", cta: "ДЕМО" },
+                about: { title: "Мы родители, а не технологическая компания.", description: "BabyJourney.life родился из нашего желания защитить воспоминания наших детей — не делиться ими с алгоритмами." },
+                faq: { title: "FAQ", readMore: "ЧИТАТЬ БОЛЬШЕ", questions: [{ q: "Действительно ли мои данные приватны?", a: "Да. Всё зашифровано. Только вы и приглашённые люди имеют доступ." }, { q: "Могу ли я добавить нескольких детей?", a: "Конечно. У каждого ребёнка есть своя собственная хронология." }, { q: "Чем это отличается от социальных сетей?", a: "Никаких комментариев, лайков, отслеживания — только история вашей семьи, сохранённая навсегда." }] },
+                cta: { title: "BabyJourney.life — Каждый момент важен.", subtitle: "Частно. Безопасно. Навсегда ваше." },
+                footer: { description: "Ведите хронику путешествия вашего малыша от первых шагов до первых слов. Каждый момент важен, каждое воспоминание драгоценно.", sections: { product: "Продукт", support: "Поддержка", company: "Компания" }, links: { features: "Функции", pricing: "Цены", contact: "Связаться с нами", about: "О Нас", privacy: "Политика Конфиденциальности", terms: "Условия Использования", cookies: "Куки" }, newsletter: { title: "Получайте обновления о детских этапах", subtitle: "Получайте еженедельные советы и функции для захвата каждого драгоценного момента.", placeholder: "Введите ваш email", subscribe: "Подписаться" }, copyright: "© 2025 BabyJourney.Life. Все права защищены.", madeWith: "Сделано с", forFamilies: "для семей" }
+            }
+        };
+        
+        let currentLanguage = 'en';
+        
+        function setLanguage(lang) {
+            console.log('Setting language to:', lang);
+            currentLanguage = lang;
+            updatePageContent();
+            localStorage.setItem('selectedLanguage', lang);
+            
+            const desktopSelector = document.getElementById('languageSelector');
+            const mobileSelector = document.getElementById('languageSelectorMobile');
+            
+            if (desktopSelector) desktopSelector.value = lang;
+            if (mobileSelector) mobileSelector.value = lang;
+        }
+        
+        function updatePageContent() {
+            console.log('Updating page content for language:', currentLanguage);
+            const elements = document.querySelectorAll('[data-lang-key]');
+            console.log('Found elements:', elements.length);
+            
+            elements.forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                const keys = key.split('.');
+                let value = translations[currentLanguage];
+                
+                for (let k of keys) {
+                    value = value ? value[k] : undefined;
+                }
+                
+                if (value !== undefined) {
+                    if (Array.isArray(value)) {
+                        const index = element.getAttribute('data-array-index');
+                        const prop = element.getAttribute('data-prop');
+                        if (index !== null && value[index]) {
+                            if (prop && value[index][prop]) {
+                                element.textContent = value[index][prop];
+                            } else {
+                                element.textContent = value[index];
+                            }
+                        }
+                    } else if (typeof value === 'string') {
+                        if (value.includes('\n')) {
+                            element.innerHTML = value.replace(/\n/g, '<br>');
+                        } else {
+                            element.textContent = value;
+                        }
+                    }
+                }
+            });
+            
+            // Handle placeholders
+            const placeholderElements = document.querySelectorAll('[data-lang-key-placeholder]');
+            placeholderElements.forEach(element => {
+                const key = element.getAttribute('data-lang-key-placeholder');
+                const keys = key.split('.');
+                let value = translations[currentLanguage];
+                
+                for (let k of keys) {
+                    value = value ? value[k] : undefined;
+                }
+                
+                if (value && element.tagName.toLowerCase() === 'input') {
+                    element.placeholder = value;
+                }
+            });
+        }
+        
+        function initLanguageSystem() {
+            console.log('Initializing language system...');
+            
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+            setLanguage(savedLanguage);
+            
+            const desktopSelector = document.getElementById('languageSelector');
+            const mobileSelector = document.getElementById('languageSelectorMobile');
+            
+            console.log('Desktop selector found:', !!desktopSelector);
+            console.log('Mobile selector found:', !!mobileSelector);
+            
+            if (desktopSelector) {
+                desktopSelector.addEventListener('change', (e) => {
+                    console.log('Desktop selector changed to:', e.target.value);
+                    setLanguage(e.target.value);
+                });
+            }
+            
+            if (mobileSelector) {
+                mobileSelector.addEventListener('change', (e) => {
+                    console.log('Mobile selector changed to:', e.target.value);
+                    setLanguage(e.target.value);
+                });
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', initLanguageSystem);
+    </script>
     <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
 </body>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Arbore genealogic – copac CSS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 16px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(to bottom, #e0f2fe, #f1f5f9);
+      color: #0f172a;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 1.8rem;
+    }
+
+    p.sub {
+      text-align: center;
+      margin: 0 0 16px;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    /* SCENA COPACULUI */
+    .tree-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 20px 16px 28px;
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.25);
+      position: relative;
+      overflow: hidden; /* important: fără scroll orizontal */
+    }
+
+    /* solul */
+    .tree-wrapper::after {
+      content: "";
+      position: absolute;
+      left: -10%;
+      right: -10%;
+      bottom: -40px;
+      height: 80px;
+      background: radial-gradient(circle at center, #16a34a, #065f46);
+      border-radius: 50%;
+      opacity: 0.9;
+      z-index: 0;
+    }
+
+    .tree {
+      position: relative;
+      padding: 40px 0 60px;
+      z-index: 1;
+    }
+
+    /* TRUNCHIUL COPACULUI */
+    .tree::before {
+      content: "";
+      position: absolute;
+      top: 40px;
+      bottom: 40px;
+      left: 50%;
+      width: 14px;
+      transform: translateX(-50%);
+      background: linear-gradient(to bottom, #b45309, #78350f);
+      border-radius: 999px;
+      box-shadow:
+        0 0 0 2px rgba(148, 163, 184, 0.4),
+        0 20px 40px rgba(15, 23, 42, 0.4);
+    }
+
+    /* COROANA COPACULUI */
+    .tree::after {
+      content: "";
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      width: 260px;
+      height: 200px;
+      transform: translateX(-50%);
+      background:
+        radial-gradient(circle at 20% 30%, #bbf7d0 0, #4ade80 40%, transparent 65%),
+        radial-gradient(circle at 80% 40%, #bbf7d0 0, #22c55e 40%, transparent 65%),
+        radial-gradient(circle at 50% 80%, #bbf7d0 0, #16a34a 45%, transparent 70%);
+      border-radius: 50%;
+      filter: drop-shadow(0 18px 30px rgba(22, 163, 74, 0.6));
+      opacity: 0.95;
+      z-index: -1;
+    }
+
+    /* RÂNDURI (niveluri în copac) */
+    .row {
+      position: relative;
+      width: 100%;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      margin: 6px 0;
+    }
+
+    .row.center {
+      justify-content: center;
+    }
+
+    .row.left {
+      justify-content: flex-start;
+      padding-left: 6%;
+    }
+
+    .row.right {
+      justify-content: flex-end;
+      padding-right: 6%;
+    }
+
+    /* CARD PERSOANĂ */
+    .person {
+      background: #f9fafb;
+      border-radius: 16px;
+      padding: 10px 14px;
+      min-width: 170px;
+      max-width: 220px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.16);
+      border: 1px solid #e5e7eb;
+      position: relative;
+      font-size: 0.85rem;
+    }
+
+    .person .role {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #6b7280;
+      margin-bottom: 2px;
+    }
+
+    .person .name {
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 2px;
+      display: block;
+    }
+
+    .person .info {
+      font-size: 0.72rem;
+      color: #4b5563;
+    }
+
+    /* ramuri verticale din trunchi spre rândul de persoane */
+    .row:not(.root)::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 28px;
+      top: 0;
+      background: #166534;
+    }
+
+    /* ramuri orizontale din trunchi spre carduri */
+
+    .row.left .person::before,
+    .row.right .person::before,
+    .row.center.children .person::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 40%;
+      max-width: 120px;
+      height: 2px;
+      background: #15803d;
+    }
+
+    .row.left .person::before {
+      right: -40%;
+      transform-origin: right;
+      border-radius: 999px;
+    }
+
+    .row.right .person::before {
+      left: -40%;
+      transform-origin: left;
+      border-radius: 999px;
+    }
+
+    /* pentru copiii de pe ambele părți de trunchi, dar aproape de centru */
+    .row.center.children {
+      justify-content: space-between;
+      padding: 0 18%;
+      gap: 12px;
+    }
+
+    .row.center.children .person {
+      max-width: 190px;
+    }
+
+    .row.center.children .person::before {
+      width: 30%;
+    }
+
+    .row.center.children .person:nth-child(1)::before {
+      right: -30%;
+    }
+
+    .row.center.children .person:nth-child(2)::before {
+      left: -30%;
+    }
+
+    /* ROOT (străbunici în coroană) – fără ramuri vizibile din trunchi */
+    .row.root::before {
+      display: none;
+    }
+
+    .row.root .person {
+      background: rgba(248, 250, 252, 0.94);
+      border-color: rgba(22, 163, 74, 0.5);
+    }
+
+    /* RESPONSIVE – păstrăm copacul, doar micșorăm totul */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      .tree-wrapper {
+        padding: 14px 10px 24px;
+        border-radius: 18px;
+      }
+
+      .tree {
+        padding: 36px 0 50px;
+      }
+
+      .tree::after {
+        width: 210px;
+        height: 170px;
+        top: -30px;
+      }
+
+      .tree::before {
+        width: 10px;
+      }
+
+      .row {
+        min-height: 70px;
+        margin: 4px 0;
+      }
+
+      .person {
+        min-width: 150px;
+        max-width: 190px;
+        padding: 8px 10px;
+        font-size: 0.78rem;
+      }
+
+      .person .role {
+        font-size: 0.6rem;
+      }
+
+      .person .info {
+        font-size: 0.66rem;
+      }
+
+      .row.left {
+        padding-left: 2%;
+      }
+      .row.right {
+        padding-right: 2%;
+      }
+
+      .row.left .person::before,
+      .row.right .person::before {
+        width: 30%;
+        max-width: 80px;
+      }
+
+      .row.center.children {
+        padding: 0 12%;
+      }
+
+      .row.center.children .person::before {
+        width: 24%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .row.center.children {
+        padding: 0 8%;
+      }
+      .person {
+        min-width: 140px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Arbore genealogic</h1>
+  <p class="sub">Exemplu de copac desenat în CSS – înlocuiește numele cu familia ta</p>
+
+  <div class="tree-wrapper">
+    <div class="tree">
+
+      <!-- STRĂBUNICII – ÎN COROANĂ -->
+      <div class="row center root">
+        <div class="person">
+          <div class="role">Străbunici</div>
+          <span class="name">Gheorghe &amp; Ana Ionescu</span>
+          <div class="info">n. ~1900, rădăcina familiei</div>
+        </div>
+      </div>
+
+      <!-- BUNICII – PĂRȚI DIFERITE ALE COPACULUI -->
+      <div class="row left">
+        <div class="person">
+          <div class="role">Bunici paterni</div>
+          <span class="name">Ion &amp; Maria Ionescu</span>
+          <div class="info">3 copii – linia tatălui</div>
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="person">
+          <div class="role">Bunici materni</div>
+          <span class="name">Petre &amp; Elena Popescu</span>
+          <div class="info">2 copii – linia mamei</div>
+        </div>
+      </div>
+
+      <!-- PĂRINȚI / UNCHI / MĂTUȘI -->
+      <div class="row left">
+        <div class="person">
+          <div class="role">Părinți</div>
+          <span class="name">Andrei &amp; Ioana Ionescu</span>
+          <div class="info">căs. 1990 – părinții tăi</div>
+        </div>
+      </div>
+
+      <div class="row left">
+        <div class="person">
+          <div class="role">Unchi &amp; mătușă</div>
+          <span class="name">Vasile &amp; Laura Ionescu</span>
+          <div class="info">2 copii</div>
+        </div>
+      </div>
+
+      <div class="row left">
+        <div class="person">
+          <div class="role">Unchi</div>
+          <span class="name">Cristian Ionescu</span>
+          <div class="info">fără copii</div>
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="person">
+          <div class="role">Părinți</div>
+          <span class="name">Daniel &amp; Ana Popescu</span>
+          <div class="info">căs. 1991 – părinții mamei</div>
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="person">
+          <div class="role">Mătușă</div>
+          <span class="name">Carmen Popescu</span>
+          <div class="info">căs. 1994</div>
+        </div>
+      </div>
+
+      <!-- COPII DIN CELE DOUĂ LINII (CENTRU, STÂNGA/DREAPTA) -->
+      <div class="row center children">
+        <div class="person">
+          <div class="role">Copii Ionescu</div>
+          <span class="name">Mihai • Elena • Alexandru</span>
+          <div class="info">n. 1992, 1995, 1999</div>
+        </div>
+
+        <div class="person">
+          <div class="role">Copii Popescu</div>
+          <span class="name">Irina • Andreea • Paul</span>
+          <div class="info">n. 1993, 1996, 2000</div>
+        </div>
+      </div>
+
+      <!-- COPIII UNCHI / MĂTUȘĂ – RAMURI MAI JOS -->
+      <div class="row left">
+        <div class="person">
+          <div class="role">Copii Vasile &amp; Laura</div>
+          <span class="name">Radu &amp; Ioana-Maria</span>
+          <div class="info">n. 1993, 1998</div>
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="person">
+          <div class="role">Copii Carmen</div>
+          <span class="name">Laura &amp; Dan Stan</span>
+          <div class="info">n. 1997, 2001</div>
+        </div>
+      </div>
+
+      <!-- O RAMURĂ ÎNDEPĂRTATĂ -->
+      <div class="row left">
+        <div class="person">
+          <div class="role">Rude îndepărtate</div>
+          <span class="name">Familia Ionescu-Badea</span>
+          <div class="info">Maria, Andrei, Ioan</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

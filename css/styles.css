@@ -474,6 +474,7 @@ a:focus {
     outline-offset: 2px;
 }
 
+
 /* Print styles */
 @media print {
     nav {
@@ -484,4 +485,5 @@ a:focus {
         break-inside: avoid;
         page-break-inside: avoid;
     }
+    
 }
